@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to 10th Sudeva Annual Sports Meet</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #e0f7fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            box-sizing: border-box;
+            margin-top: 40px; /* adds space at the top */
+        }
+
+        h1 {
+            text-align: center;
+            color: #0077b6;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #0077b6;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005f8a;
+        }
+
+        .error {
+            color: red;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to 10th Sudeva Annual Sports Meet</h1>
+        <h2>Student Registration</h2>
+        <form method="POST" action="/student/register">
+            <% if (error) { %>
+                <div class="error"><%= error %></div>
+            <% } %>
+
+            <label for="name">Full Name</label>
+            <input type="text" name="name" placeholder="Enter name" required>
+
+            <label for="registerNumber">Registration Number</label>
+            <input type="text" name="registerNumber" placeholder="Enter registration number" required>
+
+            <label for="year">Year</label>
+            <select name="year" required>
+                <option value="">Select Year</option>
+                <option value="1st">1st Year</option>
+                <option value="2nd">2nd Year</option>
+                <option value="3rd">3rd Year</option>
+                <option value="4th">4th Year</option>
+            </select>
+
+            <label for="department">Department</label>
+            <input type="text" name="department" placeholder="Enter department" required>
+
+            <label>Gender</label>
+            <div class="radio-group">
+                <label class="radio-option">
+                    <input type="radio" name="gender" value="Male" required> Male
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="gender" value="Female" required> Female
+                </label>
+            </div>
+
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="Enter your email address" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

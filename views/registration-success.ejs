@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Successful</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #e0f7fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .success-container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+        h1 {
+            color: #2ecc71;
+            margin-bottom: 20px;
+        }
+        .student-info {
+            text-align: left;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .info-item {
+            margin: 10px 0;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #0077b6;
+        }
+        .home-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #0077b6;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+        .home-btn:hover {
+            background-color: #005f8a;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <h1>Registration Successful!</h1>
+        
+        <div class="student-info">
+            <div class="info-item">
+                <span class="info-label">Name:</span> <%= student.name %>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Registration Number:</span> <%= student.registerNumber %>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Year:</span> <%= student.year %>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Department:</span> <%= student.department %>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Gender:</span> <%= student.gender %>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Email:</span> <%= student.email %>
+            </div>
+        </div>
+
+        <a href="/" class="home-btn">Return to Home</a>
+    </div>
+</body>
+</html>

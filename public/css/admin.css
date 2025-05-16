@@ -1,0 +1,105 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f4f8;
+  margin: 20px;
+  padding: 0;
+  color: #333;
+}
+h1 {
+  text-align: center;
+}
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+.stat-box {
+  background: #fff;
+  padding: 15px 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+  text-align: center;
+  width: 150px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #444;
+}
+.gift-container {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.gift-box {
+  width: 100px;
+  height: 100px;
+  background: #e74c3c;
+  margin: 0 auto 20px;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+  box-shadow: 0 0 10px #e74c3c;
+}
+.gift-box::before, .gift-box::after {
+  content: "";
+  position: absolute;
+  background: #c0392b;
+  border-radius: 10px;
+}
+.gift-box::before {
+  width: 20px;
+  height: 100%;
+  left: 40px;
+  top: 0;
+}
+.gift-box::after {
+  height: 20px;
+  width: 100%;
+  top: 40px;
+  left: 0;
+}
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px #e74c3c;
+  }
+  50% {
+    box-shadow: 0 0 20px #ff6b6b;
+  }
+}
+button {
+  background: #27ae60;
+  color: white;
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+button:hover {
+  background: #2ecc71;
+}
+#gifted-list {
+  max-width: 700px;
+  margin: 0 auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+th {
+  background-color: #27ae60;
+  color: white;
+}
+.no-gifts {
+  text-align: center;
+  color: #888;
+  margin-top: 20px;
+  font-style: italic;
+}

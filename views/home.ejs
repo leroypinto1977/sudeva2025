@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Sudeva Sports Meet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #83a4d4, #b6fbff);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 350px;
+    }
+
+    .container h1 {
+      font-size: 24px;
+      color: #333366;
+      margin-bottom: 20px;
+    }
+
+    .container h2 {
+      font-size: 20px;
+      color: #222;
+      margin-bottom: 30px;
+    }
+
+    .login-options {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      color: white;
+      background-color: #333366;
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #5555aa;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>10th Annual Sudeva Sports Meet</h1>
+    <h2>Login as</h2>
+    <div class="login-options">
+<a href="/student/register" class="btn">Student</a>
+      <a href="/admin" class="btn">Admin</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Dashboard - Sudeva Sports Meet</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #82c2f4, #0e416e);
+      color: #000000;
+      margin: 0;
+      padding: 60px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    h1,h3{
+      font-weight: 700;
+      font-size: 2.8rem;
+      margin-bottom: 30px;
+      color: #daf4ff;
+      text-shadow: 0 0 6px #a7d8ff;
+    }
+
+    .stats {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .stats p {
+      background: #3c8adf33; /* semi-transparent */
+      border: 2px solid #8bc1ff88; /* light blue border */
+      padding: 18px 36px;
+      border-radius: 15px;
+      font-size: 1.4rem;
+      font-weight: 600;
+      min-width: 160px;
+      box-shadow: 0 0 6px #2b65c7aa;
+      transition: box-shadow 0.3s ease;
+      color: #d0eaff;
+    }
+
+    .stats p:hover {
+      box-shadow: 0 0 15px #85bfffcc;
+      cursor: default;
+    }
+
+    .icon-row {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 50px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Style for the SVG icons container */
+    .icon-container {
+      width: 70px;
+      height: 70px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 12px rgba(33, 109, 230, 0.45);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+
+    .icon-container:hover {
+      transform: scale(1.15);
+      box-shadow: 0 8px 20px rgba(105, 180, 255, 0.9);
+    }
+
+    button {
+      background-color: #005bb5;
+      border: none;
+      border-radius: 30px;
+      padding: 15px 50px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #e0f0ff;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0, 91, 181, 0.7);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+
+    button:hover {
+      background-color: #003f80;
+      box-shadow: 0 8px 25px rgba(0, 140, 255, 0.85);
+    }
+
+    ul#giftedList {
+      max-width: 540px;
+      width: 100%;
+      list-style: none;
+      padding: 0;
+      margin-top: 40px;
+      color: #cce7ff;
+      font-size: 1.1rem;
+    }
+
+    ul#giftedList li {
+      background: rgba(0, 91, 181, 0.2);
+      margin-bottom: 14px;
+      padding: 14px 24px;
+      border-radius: 15px;
+      box-shadow: inset 0 0 10px rgba(105, 180, 255, 0.3);
+      transition: background-color 0.3s ease;
+      font-weight: 500;
+    }
+
+    ul#giftedList li:hover {
+      background-color: rgba(0, 140, 255, 0.45);
+      color: #001f3f;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+   <h1>10th Annual Sudeva Sports Meet </h1>
+
+  <div class="stats">
+    <p>Total Students: <%= total %></p>
+    <p>Boys: <%= boys %></p>
+    <p>Girls: <%= girls %></p>
+  </div>
+
+ 
+
+  <button onclick="generateGift()">Generate Gift</button>
+
+  <ul id="giftedList" aria-live="polite" aria-relevant="additions"></ul>
+
+  <script>
+    function generateGift() {
+      fetch('/admin/generate-gift', { method: 'POST' })
+        .then(res => res.json())
+        .then(data => {
+          const ul = document.getElementById('giftedList');
+          ul.innerHTML = '';
+          data.forEach(student => {
+            const li = document.createElement('li');
+            li.textContent = `${student.name} (${student.registerNumber}) - ${student.year} ${student.department}`;
+            ul.appendChild(li);
+          });
+        })
+        .catch(() => {
+          alert('Error generating gifts. Please try again.');
+        });
+    }
+  </script>
+
+</body>
+</html>
+
+
